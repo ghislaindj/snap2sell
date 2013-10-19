@@ -46,3 +46,5 @@ gem "mongoid", git: "https://github.com/mongoid/mongoid.git"
 #end
 
 gem "rails_config"
+
+gem 'github_api'
