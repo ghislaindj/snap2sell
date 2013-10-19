@@ -1,4 +1,6 @@
 (function() {
+	console.log("leboncoin")
+
 	var values = {
 		region: 12,
 		dpt_code: 75, // cannot be accessed by input[name=dpt_code]
@@ -19,10 +21,11 @@
 	document.getElementById("phone_hidden").checked = "checked";
 
 	var form = document.getElementById("formular");
-	form.setAttribute("onsubmit", "");
+	form.removeAttribute("onsubmit");
 
-	confirm("submit?", function() {
+	if (confirm("submit?")) {
+		console.log("submitting...");
 		form.submit();
-	});
+	}
 
 })();
