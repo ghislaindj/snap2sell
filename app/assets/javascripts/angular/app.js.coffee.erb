@@ -1,6 +1,6 @@
 @app = angular.module 'app', ['rails', 'ngRoute', 'ngResource']
 
-@app.config ($routeProvider, $locationProvider) ->
+@app.config ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
     .when '/products',
       templateUrl: '/assets/angular/views/products.html'
@@ -15,3 +15,5 @@
       redirectTo: '/products'
 
   $locationProvider.html5Mode true
+
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr 'content'
