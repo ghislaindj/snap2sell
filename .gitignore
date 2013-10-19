@@ -18,3 +18,6 @@
 
 # For mac users
 *.DS_Store
+
+# Ignore uploaded images & co
+public/system
