@@ -2,7 +2,7 @@ Snap2sell::Application.routes.draw do
   
   resources :products
 
-  root to: 'home#index'
+  root to: 'products#index'
 
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
