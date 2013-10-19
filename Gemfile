@@ -30,6 +30,14 @@ end
 group :development do
   gem "debugger"
   gem "awesome_print"
+  gem "capistrano"
+  gem 'rvm-capistrano'
+end
+
+group :production, :staging do
+  gem 'unicorn'
+  gem 'execjs'
+  gem 'therubyracer'
 end
 
 #Mongoid
