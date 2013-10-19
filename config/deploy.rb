@@ -13,7 +13,7 @@ set :deploy_via,  :remote_cache
 set :keep_releases, 5
 
 # GIT
-set :repository,     "git@github.com:milkysocial/#{application}.git"
+set :repository,     "git@github.com:ghislaindj/#{application}.git"
 set :scm,            :git
 set :scm_username,   "git"
 
@@ -56,4 +56,3 @@ namespace :deploy do
   end  
 end
 require './config/boot'
-require 'airbrake/capistrano'
