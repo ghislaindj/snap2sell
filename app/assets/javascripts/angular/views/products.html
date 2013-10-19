@@ -1,0 +1,6 @@
+<ul>
+  <li ng-repeat='product in products'>
+    <a ng-href='/products/{{product.id}}'>{{product.title}}</a>
+    <img ng-src='{{product.picture.thumb}}' />
+  </li>
+</ul>
