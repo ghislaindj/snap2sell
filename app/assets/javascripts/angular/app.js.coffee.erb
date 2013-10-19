@@ -1,0 +1,14 @@
+@app = angular.module 'app', ['rails', 'ngRoute', 'ngResource']
+
+@app.config ($routeProvider, $locationProvider) ->
+  $routeProvider
+    .when '/products',
+      templateUrl: '/assets/angular/views/products.html'
+      controller: 'ProductsCtrl'
+    .when '/products/:id',
+      templateUrl: '/assets/angular/views/product.html'
+      controller: 'ProductCtrl'
+    .otherwise
+      redirectTo: '/products'
+
+  $locationProvider.html5Mode true

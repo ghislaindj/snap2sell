@@ -36,7 +36,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
-    angularjs-rails (1.0.8)
+    angularjs-rails-resource (0.2.3)
     arel (4.0.0)
     atomic (1.1.14)
     awesome_print (1.2.0)
@@ -198,7 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angularjs-rails
+  angularjs-rails-resource (~> 0.2.3)
   awesome_print
   capistrano
   coffee-rails (~> 4.0.0)
