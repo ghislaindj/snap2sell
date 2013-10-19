@@ -10,10 +10,11 @@
       product = NewProduct.get()
       product.title = "MY TITLE"
 
-      reader = new FileReader
-      reader.onload = (event) ->
-        product.picture = event.target.result
-        $rootScope.$apply()
-      reader.readAsDataURL newProductImage
+      # reader = new FileReader
+      # reader.onload = (event) ->
+      #   product.picture = event.target.result
+      #   $rootScope.$apply()
+      # reader.readAsDataURL newProductImage
+      product.picture = newProductImage
 
       $location.path '/products/new'
