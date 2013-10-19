@@ -5,7 +5,7 @@
   scope: {}
   template: "
   <div class='file_upload_button'>
-    <button ng-click='selectFile()' ng-transclude></button>
+    <button ng-click='selectFile()' ng-transclude class='btnSell'></button>
     <div class='file_input_container'>
       <input class='file_element' type='file' />
     </div>
