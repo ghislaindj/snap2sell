@@ -2,16 +2,17 @@
   restrict: 'E'
   transclude: true
   replace:    true
-  scope: {}
-  template: "
-  <div class='file_upload_button'>
-    <button ng-click='selectFile()' ng-transclude class='btnSell'></button>
-    <div class='file_input_container'>
-      <input class='file_element' type='file' />
-    </div>
-  </div>
-  "
+  scope:
+    file: '='
+  templateUrl: '/assets/angular/templates/file_upload_button.html'
 
   link: (scope, element) ->
+    file_element = angular.element('.file_element')
+
+    file_element.bind 'change', (event) ->
+      scope.$apply ->
+        scope.file = event.target.files[0]
+
     scope.selectFile = ->
-      angular.element('.file_element').click()
+      file_element.click()
+      null
