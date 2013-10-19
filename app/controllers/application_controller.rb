@@ -4,6 +4,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  before_filter :normal_cookies_for_ie_in_iframes!
-
 end
