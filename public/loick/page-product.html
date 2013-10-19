@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Snap To Sell</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- <link rel="stylesheet" media="screen and (max-device-width: 768px)" href="tablet.css" /> -->
+	<link rel="stylesheet" media="screen and (max-device-width:)" href="mobile.css" />
+	
+
+</head>
+<body>
+<div id="header">
+	<div class="wrap">
+		<a href="homepage.html" alt="Logo Snap To Sell" class="logo"></a>
+		<a href="add-product.html" alt="Sell an Objet" class="btnSell">Sell</a>
+	</div>
+</div>
+<div class="wrapper">
+	<div class="annonce">
+		<a href="">
+			<img src="images/iphone.jpg" class="productImage" />
+		</a>
+		<div class="information">
+			<a href="" class="linkTitle">Name product</a>
+			<p class="price-product">24$</p>
+		</div>
+	</div>	
+	
+	<a href="mailto:loick.muller@gmail.com?Subject=Coucoutoi" alt="" class="btnContact">Contacter le vendeur</a>
+	<a href="" alt="" class="btnShare" id="trigger-1">Share</a>
+	<a href="" alt="" class="btnDelete">Supprimer</a>
+</div>
+
+<!-- Popins -->
+			<div id="popin-1" class="popin">
+				
+				<div class="shareContent">
+					<h3>Partager cette annonce</h3>
+					<input type="text" name="" value="" placeholder="URL DE L'ANNONCE">
+					<a href="" alt="" class="facebookShare">Facebook</a>
+					<a href="" alt="" class="emailShare">Email</a>
+					<a href="" alt="" class="twitterShare">Twitter</a>
+					<a href="" class="close">close</a>
+				</div>
+			</div>
+
+
+
+<!-- Import jQuery 1.9.1-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+<!-- Import Scrollable Popin -->
+<script src="js/jquery-mary-popin.js"></script>
+<script>
+	(function($){
+		$('#trigger-1').marypopin('#popin-1');
+		$('#trigger-2').marypopin('#popin-2')
+
+
+			
+		// var pop2 = [document.getElementById('popin-2')];
+			// $('#trigger-2').marypopin(pop2, {
+			// 	position: 'top',
+			// 	close: '.close-popin',
+			// 	maskClick: false
+			// });
+			
+			// $('#trigger-3').click(function(e){
+			// 	e.preventDefault();
+			// 	e.stopPropagation();
+			// 	$('#trigger-1').marypopin('open');
+			// });
+			
+			// $('#trigger-4').marypopin('#popin-1');
+			
+			// var popin = '<div id="popin-3"></div>';
+			// $('#trigger-5').marypopin(popin);
+			
+	})(jQuery);
+</script>
+</body>
+</html>
