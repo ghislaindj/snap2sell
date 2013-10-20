@@ -7,5 +7,6 @@ class Product
   belongs_to :user,       class_name: 'User'
   has_mongoid_attached_file :picture, styles: {thumb: "340x340#"}
 
-  field :title, type: String
+  field :title,     type: String
+  field :location,  type: Hash
 end
