@@ -8,7 +8,6 @@ require 'capistrano/ext/multistage'
 set :application, "snap2sell"
 set :user,        "#{application}"
 set :use_sudo,    false
-set :deploy_to,   "/var/www/#{application}"
 set :deploy_via,  :remote_cache
 set :keep_releases, 5
 

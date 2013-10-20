@@ -43,6 +43,7 @@ group :production, :staging do
   gem 'unicorn'
   gem 'execjs'
   gem 'therubyracer'
+  gem 'phantomjs-binaries'
   gem 'phantomjs'
 end
 

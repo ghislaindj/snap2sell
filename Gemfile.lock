@@ -77,6 +77,7 @@ GEM
     execjs (2.0.2)
     faker (1.2.0)
       i18n (~> 0.5)
+    ffi (1.9.0)
     highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.5)
@@ -122,6 +123,8 @@ GEM
       mime-types
     phantomjs (1.8.1.1)
       poltergeist
+    phantomjs-binaries (1.8.1.4)
+      sys-uname (= 0.9.0)
     poltergeist (1.4.1)
       capybara (~> 2.1.0)
       cliver (~> 0.2.1)
@@ -170,6 +173,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sys-uname (0.9.0)
+      ffi (>= 1.0.0)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -212,6 +217,7 @@ DEPENDENCIES
   mongoid!
   mongoid-paperclip
   phantomjs
+  phantomjs-binaries
   rails (= 4.0.0)
   rails_config
   rvm-capistrano
