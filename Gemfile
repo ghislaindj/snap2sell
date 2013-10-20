@@ -51,3 +51,5 @@ gem "mongoid", git: "https://github.com/mongoid/mongoid.git"
 gem "rails_config"
 
 gem "casperjs"
+
+gem "faker"

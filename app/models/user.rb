@@ -4,12 +4,13 @@ class User
 
   has_many :products,     class_name: 'Product'
 
-  field :first_name,      type: String, default: 'John'
-  field :last_name,       type: String, default: 'Doe'
-  field :email,           type: String, default: 'snaptosell@gmail.com'
+  field :name,      type: String
+  field :email,     type: String, default: 'snaptosell@gmail.com'
 
-  def full_name
-    first_name + ' ' + last_name
+  before_save do |user|
+    if user.name.nil?
+      user.name = Faker::Name.name
+    end
   end
 
 end
