@@ -9,7 +9,11 @@ class User
 
   before_save do |user|
     if user.name.nil?
-      user.name = Faker::Name.name
+      begin
+        user.name = Faker::Name.name
+      rescue => e
+        retry
+      end
     end
   end
 

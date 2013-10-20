@@ -6,16 +6,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def set_session
-    if session[:user_id].nil?
+    if session[:user_id].nil? || @current_user.nil?
       user = User.create
       session[:user_id] = user.id.to_s
     end
   end
 
   def current_user
-    unless @user || !@user.nil?
-      @user = User.where(id: session[:user_id]).first
+    unless @current_user || !@current_user.nil?
+      @current_user = User.where(id: session[:user_id]).first
     end
-    @user
+    @current_user
   end
 end

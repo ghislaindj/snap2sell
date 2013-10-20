@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   def create
     prm = product_params
     prm[:location] = JSON.parse(prm[:location])
-    @product = Product.new(prm)
+    @product = current_user.products.new(prm)
 
     respond_to do |format|
       if @product.save
