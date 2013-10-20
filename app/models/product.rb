@@ -15,6 +15,8 @@ class Product
 
   before_save :parse_location
 
+  after_save :post_to_leboncoin
+
   def parse_location
     unless self.zip_code.present? && self.dpt_code.present?
       self.zip_code = self.location["address_components"].select{|a| a["types"] == ["postal_code"]}.first["short_name"]
@@ -24,7 +26,7 @@ class Product
   end
 
   def post_to_leboncoin
-    IO.popen("casperjs lib/assets/post_leboncoin.js --region='#{self.region}' --dpt_code='#{self.dpt_code}' --zipcode='#{self.zip_code}' --category=39 --name='#{self.user.name.gsub(/\s+/, "")}' --email='#{self.user.email}' --phone='0676845050' --phone_hidden=true --subject='#{self.title}' --body='Achete il y a un an'  --image0='public#{self.picture(:thumb).split('?')[0]}' --pwd='coucou' --screenshot=true") do |io|
+    IO.popen("casperjs lib/assets/post_leboncoin.js --region='#{self.region}' --dpt_code='#{self.dpt_code}' --zipcode='#{self.zip_code}' --category=39 --name='#{self.user.name.gsub(/\s+/, "")}' --email='#{self.user.email}' --phone='0676845050' --phone_hidden=true --subject='#{self.title}' --body='Achete il y a un an'  --image0='public#{self.picture(:thumb).split('?')[0]}' --pwd='coucou' --screenshot=false") do |io|
       while line = io.gets
         logger.info line
       end
