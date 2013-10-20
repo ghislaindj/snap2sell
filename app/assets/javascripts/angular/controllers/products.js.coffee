@@ -5,6 +5,7 @@
 
   $scope.$watch 'newProductImage', (newProductImage) ->
     if newProductImage?
+      product = NewProduct.reset()
       product = NewProduct.get()
       product.picture = newProductImage
 
