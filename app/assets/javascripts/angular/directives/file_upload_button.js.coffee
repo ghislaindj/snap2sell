@@ -14,5 +14,8 @@
         scope.file = event.target.files[0]
 
     scope.selectFile = ->
-      file_element.click()
-      null
+      # Avoid to calling click while a $scope.$apply
+      setTimeout ->
+        file_element.click()
+      , 10
+      false
