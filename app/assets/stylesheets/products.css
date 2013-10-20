@@ -100,6 +100,7 @@ a {
   text-decoration:none;
   font-weight:bold;
   background: #62B6A1 url(price.png)no-repeat 12px 13px;
+  cursor: pointer;
 }
 
 .btnSell:hover {
@@ -176,7 +177,6 @@ a {
   .productImage {
     background-size:cover;
     width:100%;
-    height:;
   }
 
   /* BTN CONTACT */

@@ -1,7 +1,30 @@
-<h1>Sell a new product</h1>
+<div id="header">
+  <div class="wrap">
+    <a href="#" alt="Logo Snap To Sell" class="logo"></a>
+		<a href="/products" alt="Cancel" class="cancel"></a>
+  </div>
+</div>
 
-<img ng-src='{{productPictureUrl}}' />
+<div class="wrapper">
+	<div class="annonce">
+    <img ng-src='{{productPictureUrl}}' class='productImage' />
+		<form>
+			<input type="text" name="" value="" placeholder="Titre" ng-model='product.title' />
+			<input type="email" name="" value="" placeholder="Email pour vous contacter" ng-model='product.user.email' />
+			<a href="#" id="optionClick">Options Supplémentaires</a>
 
-<input type='text' ng-model='product.title' />
+			<!-- INFORMATION SUPPLEMENTAIRE -->
+			<div id="option">
+			    <input type="text" name="" value="" placeholder="price" class="price">
+			    <input type="text" name="" value="" placeholder="Description" class="description">
+			</div><!-- /INFORMATION SUP -->
 
-<button ng-click='create()'>Sell it!</button>
+
+			<a href="" class="poster" ng-click='create()'>Poster</a>
+		</form>
+	</div>	
+	
+
+</div>
+
+
