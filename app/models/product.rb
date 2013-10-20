@@ -39,7 +39,7 @@ class Product
     end
     IO.popen(cmd) do |io|
       while line = io.gets
-        logger.info line
+        logger.warn line
       end
     end
   end
