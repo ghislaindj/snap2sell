@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
       t1 = Thread.new do
         @product.post_to_leboncoin
       end
+      @product.user.update_attribute(:email, product_params[:user][:email])
     end
 
     respond_to do |format|
@@ -76,6 +77,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :picture, :location)
+      params.require(:product).permit(:title, :picture, :location, user: [:email])
     end
 end

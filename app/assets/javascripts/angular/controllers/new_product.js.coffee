@@ -17,9 +17,10 @@
       console.log $scope.product.location
 
       fd = new FormData
-      fd.append 'product[picture]',   $scope.product.picture
-      fd.append 'product[title]',     $scope.product.title
-      fd.append 'product[location]',  $scope.product.location
+      fd.append 'product[picture]',     $scope.product.picture
+      fd.append 'product[title]',       $scope.product.title
+      fd.append 'product[location]',    $scope.product.location
+      fd.append 'product[user][email]', $scope.product.user.email
 
       # Custom $http POST to support file upload
       $http.post '/products.json', fd,
@@ -33,5 +34,3 @@
 
     , ->
       console.log 'ERROR'
-
-
