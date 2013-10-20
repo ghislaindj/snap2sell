@@ -6,7 +6,6 @@
   $scope.$watch 'newProductImage', (newProductImage) ->
     if newProductImage?
       product = NewProduct.get()
-      product.title = "MY TITLE"
       product.picture = newProductImage
 
       $location.path '/products/new'
