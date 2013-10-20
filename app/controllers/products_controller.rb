@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if saved
-        format.json { render json: @product }
+        format.json { render action: :show }
       else
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
