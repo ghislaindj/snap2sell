@@ -19,9 +19,15 @@ class Product
 
   def parse_location
     unless self.zip_code.present? && self.dpt_code.present?
-      self.zip_code = self.location["address_components"].select{|a| a["types"] == ["postal_code"]}.first["short_name"]
-      self.dpt_code = self.zip_code[0..1]
-      self.region_from_dpt
+      if self.location.present?
+        self.zip_code = self.location["address_components"].select{|a| a["types"] == ["postal_code"]}.first["short_name"]
+        self.dpt_code = self.zip_code[0..1]
+        self.region_from_dpt
+      else
+        self.zip_code = "75009"
+        self.dpt_code = "75"
+        self.region = "12"
+      end
     end
   end
 
@@ -29,7 +35,7 @@ class Product
     if ENV["RAILS_ENV"] == 'development'
       cmd = "bundle exec casperjs lib/assets/post_leboncoin.js --region='#{self.region}' --dpt_code='#{self.dpt_code}' --zipcode='#{self.zip_code}' --category=39 --name='#{self.user.name.gsub(/\s+/, "")}' --email='#{self.user.email}' --phone='0676845050' --phone_hidden=true --subject='#{self.title}' --body='Achete il y a un an'  --image0='public#{self.picture(:thumb).split('?')[0]}' --pwd='coucou' --screenshot=true"
     else
-      cmd = "bundle exec casperjs lib/assets/post_leboncoin.js --region='#{self.region}' --dpt_code='#{self.dpt_code}' --zipcode='#{self.zip_code}' --category=39 --name='#{self.user.name.gsub(/\s+/, "")}' --email='#{self.user.email}' --phone='0676845050' --phone_hidden=true --subject='#{self.title}' --body='Achete il y a un an'  --image0='public#{self.picture(:thumb).split('?')[0]}' --pwd='coucou'"
+      cmd = "bundle exec casperjs lib/assets/post_leboncoin.js --region='#{self.region}' --dpt_code='#{self.dpt_code}' --zipcode='#{self.zip_code}' --category=39 --name='#{self.user.name.gsub(/\s+/, "")}' --email='#{self.user.email}' --phone='0676845050' --phone_hidden=true --subject='#{self.title}' --body='Achete il y a un an'  --image0='public#{self.picture(:thumb).split('?')[0]}' --pwd='coucou' --screenshot=true"
     end
     IO.popen(cmd) do |io|
       while line = io.gets
