@@ -15,7 +15,7 @@ class Product
 
   before_save :parse_location
 
-  after_save :post_to_leboncoin
+  #after_save :post_to_leboncoin
 
   def parse_location
     unless self.zip_code.present? && self.dpt_code.present?
