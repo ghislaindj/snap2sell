@@ -225,7 +225,7 @@ a {
     text-transform:uppercase;
     color:#FFF;
     text-decoration:none;
-    background: #62B6A1 url(close.png)no-repeat 12px 13px;
+    background: #62B6A1 image-url("close.png")no-repeat 12px 13px;
     height:50px;
     width:5px;
   }
@@ -249,7 +249,7 @@ a {
     margin:14px 0 10px 0;
     padding:10px 0 10px 8px;
     display:block;
-    background: #EEEFE9 url(iconMore.png)no-repeat right;
+    background: #EEEFE9 image-url("iconMore.png")no-repeat right;
   }
 
   #option {
