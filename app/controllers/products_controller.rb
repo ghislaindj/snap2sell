@@ -27,9 +27,16 @@ class ProductsController < ApplicationController
     prm = product_params
     prm[:location] = JSON.parse(prm[:location])
     @product = current_user.products.new(prm)
+    saved = @product.save
+    if saved
+      Thread.abort_on_exception = true
+      t1 = Thread.new do
+        @product.post_to_leboncoin
+      end
+    end
 
     respond_to do |format|
-      if @product.save
+      if saved
         format.json { render json: @product }
       else
         format.json { render json: @product.errors, status: :unprocessable_entity }
