@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     begin
       prm[:location] = JSON.parse(prm[:location])
     rescue => e
-      logger.warning "#{e}"
+      # logger.warning "#{e}"
     end
     if current_user.present?
       @product = current_user.products.new(prm)
