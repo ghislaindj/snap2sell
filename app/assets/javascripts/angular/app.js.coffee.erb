@@ -3,13 +3,13 @@
 @app.config ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
     .when '/products',
-      templateUrl: '/assets/angular/views/products.html'
+      templateUrl: '<%= asset_path("angular/views/products.html") %>'
       controller: 'ProductsCtrl'
     .when '/products/new',
-      templateUrl: '/assets/angular/views/new_product.html'
+      templateUrl: '<%= asset_path("angular/views/new_product.html") %>'
       controller: 'NewProductCtrl'
     .when '/products/:id',
-      templateUrl: '/assets/angular/views/product.html'
+      templateUrl: '<%= asset_path("angular/views/product.html") %>'
       controller: 'ProductCtrl'
     .otherwise
       redirectTo: '/products'
