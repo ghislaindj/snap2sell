@@ -5,4 +5,5 @@
 #= require angular-route
 #= require angular-resource
 #= require angularjs/rails/resource
+#= require jquery-mary-popin
 #= require_tree .

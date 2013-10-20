@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
         logger.warn "Thread Casper ended"
       end
       @product.user.update_attribute(:email, product_params[:user][:email])
+      UserMailer.new_product(current_user, @product.id).deliver
     end
 
     respond_to do |format|
