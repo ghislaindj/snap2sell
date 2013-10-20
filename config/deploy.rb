@@ -55,4 +55,11 @@ namespace :deploy do
     run "kill -s QUIT `cat #{shared_path}/pids/unicorn.pid`"
   end  
 end
+
+namespace :db do
+  desc "Drop the database"
+  task :drop, :roles => :db do
+    run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:drop"
+  end
+end
 require './config/boot'
