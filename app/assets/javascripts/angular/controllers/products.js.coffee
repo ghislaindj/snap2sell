@@ -10,3 +10,6 @@
       product.picture = newProductImage
 
       $location.path '/products/new'
+
+  $scope.prize = ->
+    Math.floor(Math.random()*100)
