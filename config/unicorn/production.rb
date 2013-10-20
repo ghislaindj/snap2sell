@@ -4,7 +4,7 @@ shared_path = "#{app_path}/shared"
 
 worker_processes 4
 
-listen "/var/run/unicorn/snap2sell.sock", :backlog => 64
+listen "#{shared_path}/unicorn.sock", :backlog => 64
 
 timeout 60
 
