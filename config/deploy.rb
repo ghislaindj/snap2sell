@@ -1,7 +1,7 @@
 load "deploy/assets"
 default_run_options[:pty] = true
 
-set :stages, %w(production)
+set :stages, %w(staging production)
 require 'capistrano/ext/multistage'
 
 # APPLICATION
