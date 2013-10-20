@@ -1,7 +1,9 @@
 'use strict'
 
-@app.controller 'NewProductCtrl', ($scope, NewProduct, Product, $http, $location, Geocoder) ->
+@app.controller 'NewProductCtrl', ($scope, NewProduct, Product, User, $http, $location, Geocoder) ->
   $scope.product = NewProduct.get()
+  $scope.product.user = User.get(id: "current")
+  console.log $scope.product.user
 
   reader = new FileReader
   reader.onload = (event) ->
