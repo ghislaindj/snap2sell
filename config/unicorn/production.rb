@@ -1,10 +1,10 @@
-app_path = "/home/snap2sell/www"
+app_path = "/var/www/snap2sell"
 current_path = "#{app_path}/current"
 shared_path = "#{app_path}/shared"
 
 worker_processes 4
 
-listen "#{shared_path}/unicorn.sock", :backlog => 64
+listen "/var/run/unicorn/snap2sell.sock", :backlog => 64
 
 timeout 60
 

@@ -1,7 +1,7 @@
 # SERVERS
-role :web, "mojito.milky.fr"
-role :app, "mojito.milky.fr"            
-role :db, "mojito.milky.fr", :primary => true  # This is where Rails migrations will run
+role :web, "snap2sell.wizcover.com"
+role :app, "snap2sell.wizcover.com"
+role :db, "snap2sell.wizcove.com", :primary => true  # This is where Rails migrations will run
 
 # GIT
 set :branch,         'master'
