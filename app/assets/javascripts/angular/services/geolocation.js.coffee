@@ -5,9 +5,9 @@
     navigator.geolocation.getCurrentPosition (geoposition) ->
       deferred.resolve geoposition.coords
     , (error) ->
-      console.log 'Error:' + error
+      console.log error
     ,
       enableHighAccuracy: true
-      timeout : 5000
+      timeout : 10000
 
     deferred.promise
