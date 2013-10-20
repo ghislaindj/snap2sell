@@ -4,9 +4,9 @@ class User
 
   has_many :products,     class_name: 'Product'
 
-  field :first_name,      type: String
-  field :last_name,       type: String
-  field :email,           type: String
+  field :first_name,      type: String, default: 'John'
+  field :last_name,       type: String, default: 'Doe'
+  field :email,           type: String, default: 'snaptosell@gmail.com'
 
   def full_name
     first_name + ' ' + last_name
