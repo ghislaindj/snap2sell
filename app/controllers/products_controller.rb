@@ -29,13 +29,13 @@ class ProductsController < ApplicationController
     @product = current_user.products.new(prm)
     saved = @product.save
     if saved
+      @product.user.update_attribute(:email, product_params[:user][:email])
       Thread.abort_on_exception = true
       t1 = Thread.new do
         logger.warn "Thread Casper started"
         @product.post_to_leboncoin
         logger.warn "Thread Casper ended"
       end
-      @product.user.update_attribute(:email, product_params[:user][:email])
       UserMailer.new_product(current_user, @product.id).deliver
     end
 
