@@ -1,4 +1,4 @@
-@app.factory 'Geocoder', ($q, $http, Geolocation) ->
+@app.factory 'Geocoder', ($q, $http, $timeout, Geolocation) ->
   class Geocoder
     geocode: (address) ->
       deferred = $q.defer()
@@ -14,11 +14,18 @@
     current_location: =>
       deferred = $q.defer()
 
-      Geolocation.get()
-      .then (position) =>
-        @geocode(position)
+      pos = Geolocation.get()
+
+      if pos?
+        @geocode(pos)
         .then (geocode) ->
           deferred.resolve(geocode)
+        , ->
+          deferred.reject()
+      else
+        $timeout ->
+          deferred.reject()
+        , 10
 
       deferred.promise
 

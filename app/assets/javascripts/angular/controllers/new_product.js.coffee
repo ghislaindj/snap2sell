@@ -11,28 +11,31 @@
     $scope.$apply()
   reader.readAsDataURL $scope.product.picture
 
+
+  send = (location) ->
+    $scope.product.location = location if location
+
+    fd = new FormData
+    fd.append 'product[picture]',     $scope.product.picture
+    fd.append 'product[title]',       $scope.product.title
+    fd.append 'product[location]',    $scope.product.location   if location
+    fd.append 'product[user][email]', $scope.product.user.email
+
+    # Custom $http POST to support file upload
+    $http.post '/products.json', fd,
+      withCredentials: true,
+      headers: {'Content-Type': undefined },
+      transformRequest: angular.identity
+    .success (data) ->
+      $location.path "/products/#{data.id}"
+    .error ->
+      console.log "ERROR"
+
   $scope.create = ->
 
     Geocoder.current_location()
     .then (geocode) ->
-      $scope.product.location = JSON.stringify geocode[0]
-      console.log $scope.product.location
-
-      fd = new FormData
-      fd.append 'product[picture]',     $scope.product.picture
-      fd.append 'product[title]',       $scope.product.title
-      fd.append 'product[location]',    $scope.product.location
-      fd.append 'product[user][email]', $scope.product.user.email
-
-      # Custom $http POST to support file upload
-      $http.post '/products.json', fd,
-        withCredentials: true,
-        headers: {'Content-Type': undefined },
-        transformRequest: angular.identity
-      .success ->
-        $location.path '/products'
-      .error ->
-        console.log "ERROR"
-
+      location = JSON.stringify geocode[0]
+      send(location)
     , ->
-      console.log 'ERROR'
+      send()
