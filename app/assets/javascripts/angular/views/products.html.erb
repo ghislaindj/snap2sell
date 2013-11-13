@@ -1,10 +1,4 @@
-<div id="header">
-  <div class="wrap">
-    <a href="/products" alt="Logo Snap To Sell" class="logo"></a>
-    <file-upload-button class='btnSell' file='newProductImage'>Sell</file-upload-button>
-  </div>
-</div>
-
+<ng-include src='"<%= asset_path("angular/views/header.html") %>"'></ng-include>
 <div class="wrapper">
   <div class="annonce" ng-repeat='product in products'>
     <a ng-href='/products/{{product.id}}'>
